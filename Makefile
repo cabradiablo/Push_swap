@@ -1,9 +1,11 @@
-SRC = main.c		\
-		parser.c	\
-		ft_error.c	\
-		rotate.c	\
-		swap.c		\
-		push.c		\
+SRC = main.c				\
+		parser.c			\
+		error.c				\
+		rotate.c			\
+		swap.c				\
+		push.c				\
+		utils.c				\
+		args_checker.c		\
 		
 
 OBJ = $(SRC:%.c=%.o)
@@ -18,7 +20,7 @@ NAME = pushswap
 
 #INCLUDES
 INC_DIR = Libft
-INC = -I $(INC_DIR) -I inc
+INC = -I $(INC_DIR)
 
 #LINKER
 LINK = -LLibft -lft
@@ -28,6 +30,9 @@ all: $(NAME)
 $(NAME) :$(OBJ)
 	make -sC $(INC_DIR)
 	$(CC) $(OBJ) $(CFLAGS) $(LINK) -o $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(RM)  -f $(OBJ)|| true

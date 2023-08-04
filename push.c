@@ -5,7 +5,7 @@ void ft_pushtob(t_stack **stacka, t_stack **stackb)
     t_stack *aux;
     
     if (*stacka == NULL || *stackb == NULL)
-        ft_error();
+        ft_error("EMPTY STACK");
     aux = (t_stack *)malloc(sizeof(t_stack));
     if (aux == NULL)
         return;
@@ -16,7 +16,7 @@ void ft_pushtob(t_stack **stacka, t_stack **stackb)
     (*stacka) = (*stacka)->next;
     free((*stacka)->prev);
     (*stacka)->prev = NULL;
-    write(0, "pb", 2);
+    write(0, "pb\n", 3);
 }
 
 void ft_pushtoa(t_stack **stacka, t_stack **stackb)
@@ -24,7 +24,7 @@ void ft_pushtoa(t_stack **stacka, t_stack **stackb)
     t_stack *aux;
     
     if (*stacka == NULL || *stackb == NULL)
-        ft_error();
+        ft_error("EMPTY STACK");
     aux = (t_stack *)malloc(sizeof(t_stack));
     if (aux == NULL)
         return;
@@ -35,5 +35,5 @@ void ft_pushtoa(t_stack **stacka, t_stack **stackb)
     (*stackb) = (*stackb)->next;
     free((*stacka)->prev);
     (*stackb)->prev = NULL;
-    write(0, "pa", 2);
+    write(0, "pa\n", 3);
 }
