@@ -4,13 +4,14 @@ void stack_a_maker(char **nbr)
 {
     t_stack  *stack_a;
     t_stack *node;
-    
-    long i = 0;
+    long    i;
+
+    i = 0;
     stack_a = NULL;
     node = NULL;
     while (nbr[i])
     {
-        node = (t_stack*)malloc(sizeof(t_stack));
+        node = (t_stack*)ft_calloc(sizeof(t_stack), 1);
         if (!node)
             ft_error("MALLOC");
         node->nbr = ft_atol(nbr[i]);
@@ -45,6 +46,7 @@ void    list_getter_zsh(char *argv)
         ft_checker(nbr[i++]);
     duplicate_checker(nbr);
     stack_a_maker(nbr);
+    ft_free_matrix(nbr);
 }
 
 void    ft_parser(int argc, char **argv)
