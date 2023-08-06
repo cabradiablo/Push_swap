@@ -1,6 +1,6 @@
 #include "pushswap.h"
 
-void stack_a_maker(char **nbr)
+t_stack *stack_a_maker(char **nbr)
 {
     t_stack  *stack_a;
     t_stack *node;
@@ -15,36 +15,26 @@ void stack_a_maker(char **nbr)
         if (!node)
             ft_error("MALLOC");
         node->nbr = ft_atol(nbr[i]);
-        if(node->nbr > __INT_MAX__ || node->nbr < INT_MIN)
-		    ft_error("NUMBER IS TOO LARGE");
         ft_stackadd_back(&stack_a, node);
         i++;
     }
     ft_reverse_rotate(&stack_a, 'a');
     print_list(stack_a);
+    return (stack_a);
 }
 
-void    list_getter_bash(int argc, char **argv)
+void    list_getter_bash(char **argv)
 {
-    int i;
-
-    i = 0;
-    while (i < argc)
-        ft_checker(argv[i++]);
-    duplicate_checker(argv + 1);
+    ft_checker(argv);
     stack_a_maker(argv);
 }
 
 void    list_getter_zsh(char *argv)
 {
     char    **nbr;
-    int         i;
 
-    i = 0;
     nbr = ft_split(argv, ' ');
-    while (nbr[i])
-        ft_checker(nbr[i++]);
-    duplicate_checker(nbr);
+    ft_checker(nbr);
     stack_a_maker(nbr);
     ft_free_matrix(nbr);
 }
@@ -56,5 +46,5 @@ void    ft_parser(int argc, char **argv)
     if (argc == 2)
         list_getter_zsh(argv[1]);
     else
-        list_getter_bash(argc, argv + 1);
+        list_getter_bash(argv + 1);
 }

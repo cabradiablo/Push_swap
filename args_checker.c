@@ -23,8 +23,13 @@ void    duplicate_checker(char **nbr)
 
 void    valid_int_checker(char  *nbr)
 {
+    long    aux;
+
     if (!nbr)
         return;
+    aux = ft_atol(nbr);
+    if(aux > INT_MAX || aux < INT_MIN)
+        ft_error("NUMBER IS TOO LARGE");
     if (*nbr == '-' || *nbr == '+')
         nbr++;
     while(*nbr != '\0')
@@ -34,8 +39,12 @@ void    valid_int_checker(char  *nbr)
         nbr++;
     }
 }
-void    ft_checker(char *nbr)
+void    ft_checker(char **nbr)
 {
-    valid_int_checker(nbr);
-    //duplicate_checker(nbr);
+    int i;
+
+    i = 0;
+    while (nbr[i])
+        valid_int_checker(nbr[i++]);
+    duplicate_checker(nbr);
 }
