@@ -1,12 +1,27 @@
 #include "pushswap.h"
 
-void print_list(t_stack *stack)
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
+}
+
+void print_stack(t_stack *stack)
 {
     if (!stack)
         return;
     printf("%li----->", stack->nbr);
     printf("%li\n", stack->index);
-    print_list(stack->next);
+    print_stack(stack->next);
 }
 
 char    **ft_argv_cleaner(int argc, char **argv)
@@ -20,6 +35,18 @@ char    **ft_argv_cleaner(int argc, char **argv)
         aux[i] = ft_strdup(argv[i + 1]);
     aux[i] = NULL;
     return (aux);
+}
+long	ft_stacksize(t_stack *stack)
+{
+	long		i;
+    
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }
 
 void ft_stackadd_back(t_stack **stack, t_stack *node)

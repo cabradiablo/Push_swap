@@ -33,8 +33,15 @@ void    valid_int_checker(char  *nbr);
 void    duplicate_checker(char **nbr);
 void    ft_checker(char **nbr);
 
-void print_list(t_stack *stack);
+void 	print_list(t_stack *stack);
+void	free_stack(t_stack **stack);
+long	ft_stacksize(t_stack *stack);
 char    **ft_argv_cleaner(int argc, char **argv);
-void ft_stackadd_back(t_stack **stack, t_stack *node);
+void 	ft_stackadd_back(t_stack **stack, t_stack *node);
+
+int 	is_sorted(t_stack *stack);
+long    weight_stack_a(t_stack  **stack_a);
+long    weight_calculator(t_stack **stack_a, t_stack **stack_b);
+void    ft_algorithm(t_stack **stack_a);
 
 #endif

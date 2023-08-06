@@ -59,6 +59,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 long	ft_atol(char *str);
+long    ft_absolute_value(long nbr);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -82,12 +83,12 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-int	ft_strlen_gnl(char *s);
-int	ft_strchr_gnl(char *s1, char c);
+int		ft_strlen_gnl(char *s);
+int		ft_strchr_gnl(char *s1, char c);
 char	strjoin_gnl(char *s1, char c);
-int	ft_isnumstr(char *s);
-int	ft_spacecounter(char *s);
-int	ft_freesplit(char **matrix, int row);
+int		ft_isnumstr(char *s);
+int		ft_spacecounter(char *s);
+int		ft_freesplit(char **matrix, int row);
 
 # endif
 #endif

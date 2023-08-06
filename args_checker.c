@@ -25,8 +25,8 @@ void    valid_int_checker(char  *nbr)
 {
     long    aux;
 
-    if (!nbr)
-        return;
+    if (!*nbr)
+        ft_error("ERROR: EMPTY ARGUMENT\n");
     if ((*nbr == '-' || *nbr == '+'))
         nbr++;
     if (*nbr == '\0')
@@ -45,6 +45,8 @@ void    ft_checker(char **nbr)
 {
     int i;
 
+    if (!*nbr)
+        ft_error("ERROR: EMPTY ARGUMENT\n");
     i = 0;
     while (nbr[i])
         valid_int_checker(nbr[i++]);

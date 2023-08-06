@@ -6,6 +6,7 @@ SRC = main.c				\
 		push.c				\
 		utils.c				\
 		args_checker.c		\
+		pinxo_sort.c		\
 		
 
 OBJ = $(SRC:%.c=%.o)
