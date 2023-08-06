@@ -7,12 +7,10 @@ void    ft_swap(t_stack **stack, char x)
 
     if (*stack == NULL || (*stack)->next == NULL)
         ft_error("EMPTY STACK");
-        ///liada
     aux1 = (*stack)->nbr;
     aux2 = (*stack)->next->nbr;
     (*stack)->nbr = aux2;
-    *stack = (*stack)->next;
-    (*stack)->nbr = aux1;
+    (*stack)->next->nbr = aux1;
     if (x == 'a')
         write(0, "sa\n", 3);
     else if (x == 'b')

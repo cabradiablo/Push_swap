@@ -18,7 +18,6 @@ t_stack *stack_a_maker(char **nbr)
         ft_stackadd_back(&stack_a, node);
         i++;
     }
-    print_list(stack_a);
     return (stack_a);
 }
 
