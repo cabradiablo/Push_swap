@@ -20,7 +20,7 @@ void    ft_reverse_rotate(t_stack **stack, char x);
 void    ft_doublerotate(t_stack **stack_a, t_stack **stack_b);
 void    ft_swap(t_stack **stack, char x);
 void    ft_doubleswap(t_stack **stack_a, t_stack **stack_b);
-void    ft_pushtoa(t_stack **stack_a, t_stack **stackb_);
+void    ft_pushtoa(t_stack **stack_a, t_stack **stack_b);
 void    ft_pushtob(t_stack **stack_a, t_stack **stack_b);
 
 void    card_to_ord(t_stack **stack_a);

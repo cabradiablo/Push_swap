@@ -12,9 +12,9 @@ void    ft_swap(t_stack **stack, char x)
     (*stack)->nbr = aux2;
     (*stack)->next->nbr = aux1;
     if (x == 'a')
-        write(0, "sa\n", 3);
+        write(1, "sa\n", 3);
     else if (x == 'b')
-        write(0, "sb\n", 3);
+        write(1, "sb\n", 3);
     else
         ft_error("ERROR: BAD STACK\n");
 }
@@ -23,5 +23,5 @@ void ft_doubleswap(t_stack **stacka, t_stack **stackb)
 {
     ft_swap(stacka, 'a');
     ft_swap(stackb, 'b');
-    write(0, "ss\n", 3);
+    write(1, "ss\n", 3);
 }

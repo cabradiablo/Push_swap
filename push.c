@@ -1,39 +1,38 @@
 #include "pushswap.h"
 
-void ft_pushtob(t_stack **stacka, t_stack **stackb)
-{
+
+void ft_pushtob(t_stack **stack_a, t_stack **stack_b) {
+    
     t_stack *aux;
     
-    if (*stacka == NULL || *stackb == NULL)
+    if (*stack_a == NULL)
         ft_error("ERROR: EMPTY STACK\n");
-    aux = (t_stack *)malloc(sizeof(t_stack));
-    if (aux == NULL)
-        return;
-    aux->nbr = (*stacka)->nbr;
-    aux->next = *stackb;
+    aux = *stack_a;
+    *stack_a = (*stack_a)->next;
+    if (*stack_a != NULL)
+        (*stack_a)->prev = NULL;
+    aux->next = *stack_b;
     aux->prev = NULL;
-    (*stackb)->prev = aux;
-    (*stacka) = (*stacka)->next;
-    free((*stacka)->prev);
-    (*stacka)->prev = NULL;
-    write(0, "pb\n", 3);
+    if (*stack_b != NULL)
+        (*stack_b)->prev = aux;
+    *stack_b = aux;
+    write(1, "pb\n", 3);
 }
 
-void ft_pushtoa(t_stack **stacka, t_stack **stackb)
+void ft_pushtoa(t_stack **stack_a, t_stack **stack_b) 
 {
     t_stack *aux;
-    
-    if (*stacka == NULL || *stackb == NULL)
+
+    if (*stack_b == NULL)
         ft_error("ERROR: EMPTY STACK\n");
-    aux = (t_stack *)malloc(sizeof(t_stack));
-    if (aux == NULL)
-        return;
-    aux->nbr = (*stackb)->nbr;
-    aux->next = *stacka;
+    aux = *stack_b;
+    *stack_b = (*stack_b)->next;
+    if (*stack_b != NULL)
+        (*stack_b)->prev = NULL;
+    aux->next = *stack_a;
     aux->prev = NULL;
-    (*stacka)->prev = aux;
-    (*stackb) = (*stackb)->next;
-    free((*stacka)->prev);
-    (*stackb)->prev = NULL;
-    write(0, "pa\n", 3);
+    if (*stack_a != NULL)
+        (*stack_a)->prev = aux;
+    *stack_a = aux;
+    write(1, "pa\n", 3);
 }
