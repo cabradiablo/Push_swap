@@ -1,20 +1,19 @@
 #include "pushswap.h"
 
-void    ft_rotate(t_stack **stack, char x)
+void ft_rotate(t_stack **stack, char x)
 {
-    t_stack *aux;
+    t_stack *last;
     
     if (*stack == NULL || (*stack)->next == NULL)
         ft_error("EMPTY STACK");
-    aux = (*stack);
-    (*stack) = (*stack)->next;
-    //free((*stack)->prev);
+    last = *stack;
+    while (last->next)
+        last = last->next;
+    last->next = *stack; 
+    (*stack)->prev = last; 
+    *stack = (*stack)->next;
+    (*stack)->prev->next = NULL;
     (*stack)->prev = NULL;
-    while ((*stack)->next != NULL) 
-        (*stack) = (*stack)->next;
-    (*stack)->next = aux;
-    aux->prev = (*stack);
-    aux->next = NULL;
     if (x == 'a')
         write(0, "ra\n", 3);
     else if (x == 'b')
@@ -22,23 +21,22 @@ void    ft_rotate(t_stack **stack, char x)
     else
         ft_error("BAD STACK");
 }
+
+
 void    ft_reverse_rotate(t_stack **stack, char x)
 {
     t_stack *aux;
     
     if (*stack == NULL || (*stack)->next == NULL)
         ft_error("EMPTY STACK");
-    while ((*stack)->next != NULL)
-        (*stack) = (*stack)->next;   
-    aux = (*stack);
-    (*stack) = (*stack)->prev;
-    free((*stack)->next);
-    (*stack)->next = NULL;
-    while ((*stack)->prev != NULL)
-        (*stack) = (*stack)->prev;
-    (*stack)->prev = aux;
-    aux->next = (*stack);
+    aux = *stack;
+    while (aux->next != NULL)
+        aux = aux->next;
+    aux->prev->next = NULL;
     aux->prev = NULL;
+    (*stack)->prev = aux;
+    aux->next = *stack;
+    *stack = aux;
     if (x == 'a')
         write(0, "ra\n", 3);
     else

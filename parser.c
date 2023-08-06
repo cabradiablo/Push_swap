@@ -20,7 +20,7 @@ void stack_a_maker(char **nbr)
         ft_stackadd_back(&stack_a, node);
         i++;
     }
-    //ft_rotate(&stack_a, 'a');
+    ft_reverse_rotate(&stack_a, 'a');
     print_list(stack_a);
 }
 
