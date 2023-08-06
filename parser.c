@@ -18,33 +18,30 @@ t_stack *stack_a_maker(char **nbr)
         ft_stackadd_back(&stack_a, node);
         i++;
     }
-    ft_reverse_rotate(&stack_a, 'a');
     print_list(stack_a);
     return (stack_a);
 }
 
-void    list_getter_bash(char **argv)
+t_stack *ft_parser(int argc, char **argv)
 {
-    ft_checker(argv);
-    stack_a_maker(argv);
-}
-
-void    list_getter_zsh(char *argv)
-{
+    t_stack *stack_a;
     char    **nbr;
 
-    nbr = ft_split(argv, ' ');
-    ft_checker(nbr);
-    stack_a_maker(nbr);
-    ft_free_matrix(nbr);
-}
-
-void    ft_parser(int argc, char **argv)
-{
     if (argc <= 1)
         ft_error("INVALID NUMEBER OF ARGUMENT");
-    if (argc == 2)
-        list_getter_zsh(argv[1]);
+    else if (argc == 2)
+    {
+        nbr = ft_split(argv[1], ' ');
+        ft_checker(nbr);
+        stack_a = stack_a_maker(nbr);
+        ft_free_matrix(nbr);
+    }
     else
-        list_getter_bash(argv + 1);
+    {
+        nbr = ft_argv_cleaner(argc, argv);
+        ft_checker(nbr);
+        stack_a = stack_a_maker(nbr);
+        ft_free_matrix(nbr);
+    }
+    return (stack_a);
 }

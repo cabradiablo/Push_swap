@@ -24,9 +24,7 @@ void    ft_pushtoa(t_stack **stack_a, t_stack **stackb_);
 void    ft_pushtob(t_stack **stack_a, t_stack **stack_b);
 
 t_stack *stack_a_maker(char **nbr);
-void    list_getter_bash(char **argv);
-void    list_getter_zsh(char *argv);
-void    ft_parser(int argc, char **argv);
+t_stack	*ft_parser(int argc, char **argv);
 
 void	ft_error(char *msg);
 
@@ -35,6 +33,7 @@ void    duplicate_checker(char **nbr);
 void    ft_checker(char **nbr);
 
 void print_list(t_stack *stack);
+char    **ft_argv_cleaner(int argc, char **argv);
 void ft_stackadd_back(t_stack **stack, t_stack *node);
 
 #endif
