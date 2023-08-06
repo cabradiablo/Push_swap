@@ -5,7 +5,7 @@ void ft_pushtob(t_stack **stacka, t_stack **stackb)
     t_stack *aux;
     
     if (*stacka == NULL || *stackb == NULL)
-        ft_error("EMPTY STACK");
+        ft_error("ERROR: EMPTY STACK\n");
     aux = (t_stack *)malloc(sizeof(t_stack));
     if (aux == NULL)
         return;
@@ -24,7 +24,7 @@ void ft_pushtoa(t_stack **stacka, t_stack **stackb)
     t_stack *aux;
     
     if (*stacka == NULL || *stackb == NULL)
-        ft_error("EMPTY STACK");
+        ft_error("ERROR: EMPTY STACK\n");
     aux = (t_stack *)malloc(sizeof(t_stack));
     if (aux == NULL)
         return;

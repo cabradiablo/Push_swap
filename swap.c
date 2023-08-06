@@ -6,7 +6,7 @@ void    ft_swap(t_stack **stack, char x)
     long    aux2;
 
     if (*stack == NULL || (*stack)->next == NULL)
-        ft_error("EMPTY STACK");
+        ft_error("ERROR: EMPTY STACK\n");
     aux1 = (*stack)->nbr;
     aux2 = (*stack)->next->nbr;
     (*stack)->nbr = aux2;
@@ -16,7 +16,7 @@ void    ft_swap(t_stack **stack, char x)
     else if (x == 'b')
         write(0, "sb\n", 3);
     else
-        ft_error("BAD STACK");
+        ft_error("ERROR: BAD STACK\n");
 }
 
 void ft_doubleswap(t_stack **stacka, t_stack **stackb)

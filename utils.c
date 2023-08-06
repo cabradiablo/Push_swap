@@ -4,7 +4,8 @@ void print_list(t_stack *stack)
 {
     if (!stack)
         return;
-    printf("%li\n", stack->nbr);
+    printf("%li----->", stack->nbr);
+    printf("%li\n", stack->index);
     print_list(stack->next);
 }
 

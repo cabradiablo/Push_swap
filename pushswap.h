@@ -23,6 +23,7 @@ void    ft_doubleswap(t_stack **stack_a, t_stack **stack_b);
 void    ft_pushtoa(t_stack **stack_a, t_stack **stackb_);
 void    ft_pushtob(t_stack **stack_a, t_stack **stack_b);
 
+void    card_to_ord(t_stack **stack_a);
 t_stack *stack_a_maker(char **nbr);
 t_stack	*ft_parser(int argc, char **argv);
 

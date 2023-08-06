@@ -5,7 +5,7 @@ void ft_rotate(t_stack **stack, char x)
     t_stack *last;
     
     if (*stack == NULL || (*stack)->next == NULL)
-        ft_error("EMPTY STACK");
+        ft_error("ERROR: EMPTY STACK\n");
     last = *stack;
     while (last->next)
         last = last->next;
@@ -19,7 +19,7 @@ void ft_rotate(t_stack **stack, char x)
     else if (x == 'b')
         write(0, "rb\n", 3);
     else
-        ft_error("BAD STACK");
+        ft_error("ERROR: BAD STACK\n");
 }
 
 
@@ -28,7 +28,7 @@ void    ft_reverse_rotate(t_stack **stack, char x)
     t_stack *aux;
     
     if (*stack == NULL || (*stack)->next == NULL)
-        ft_error("EMPTY STACK");
+        ft_error("ERROR: EMPTY STACK\n");
     aux = *stack;
     while (aux->next != NULL)
         aux = aux->next;
@@ -40,7 +40,7 @@ void    ft_reverse_rotate(t_stack **stack, char x)
     if (x == 'a')
         write(0, "ra\n", 3);
     else
-        ft_error("BAD STACK");
+        ft_error("ERROR: BAD STACK\n");
 }
 
 void ft_doublerotate(t_stack **stacka, t_stack **stackb)
