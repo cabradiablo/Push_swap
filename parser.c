@@ -1,16 +1,16 @@
 #include "pushswap.h"
 
-void card_to_ord(t_stack **stack_a)
+void card_to_ord(t_stack **stack)
 {
     t_stack *aux;
     t_stack *temp;
     long i;
 
-    temp = *stack_a;
+    temp = *stack;
     while (temp)
     {
         i = 1;
-        aux = *stack_a;
+        aux = *stack;
         while (aux)
         {
             if (temp->nbr > aux->nbr)

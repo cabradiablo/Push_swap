@@ -1,22 +1,34 @@
 #include "pushswap.h"
 
-int is_sorted(t_stack *stack)
+/*long    weight_stack_b(int argc, t_stack  **stack_b)
 {
+    t_stack *aux;
+    long    weight;
+    long    total_weight;
     long    i;
+    long    stack_size;
 
-    i = 0;
-    if (!stack)
-        return (1);
-    while (stack)
+    weight = 1;
+    total_weight = 0;
+    aux = *stack_b;
+    stack_size = ft_stacksize(aux);
+    while (aux)
     {
-        i = stack->nbr;
-        stack = stack->next;
-        if (i > stack->nbr)
-            return (0);
+        if (weight > stack_size / 2)
+            weight = stack_size - weight;
+        printf("objetivo:%li----indice:%li---pasos:%li\n", aux->index, i, weight);
+        aux = aux->next;
+        if (aux->index > argc / 2)
+            total_weight += weight + (argc - aux->index);
+        else
+            total_weight += weight + aux->index;
+        weight++;
     }
-    return (1);
-}
-long    weight_stack_a(t_stack  **stack_a)
+    printf("weight------------->%li\n\n", total_weight);
+    return (weight);
+}*/
+
+long    weight_stack(t_stack  **stack_a)
 {
     t_stack *aux;
     long    weight;
@@ -46,6 +58,19 @@ long    weight_stack_a(t_stack  **stack_a)
     printf("weight------------->%li\n\n", total_weight);
     return (weight);
 }
+
+/*
+void    ft_algorithm(t_stack **stack_a)
+{
+    t_list  *stack_b;
+    long    total_weight;
+    
+    total_weight = weight_stack_a(&stack_a);
+    //total_weight += weight_stack_b(argc, &stack_b);
+}
+
+*/
+
 
 /*
 long    weight_calculator(t_stack **stack_a, t_stack **stack_b)
@@ -80,13 +105,4 @@ long    weight_calculator(t_stack **stack_a, t_stack **stack_b)
 
     printf("weight------------->%li\n\n", weight);
     return (weight);
-}
-*/
-/*
-void    ft_algorithm(t_stack **stack_a)
-{
-    t_list  *stack_b;
-
-    weight_calculator(&stack_a, &stack_b);
-}
-*/
+}*/

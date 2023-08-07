@@ -1,0 +1,86 @@
+#include "pushswap.h"
+
+int is_sorted(t_stack *stack)
+{
+    if (!stack)
+        return (1);
+    
+    while (stack->next)
+    {
+        if (stack->nbr > stack->next->nbr)
+            return 0;
+        stack = stack->next;
+    }
+    
+    return (1);
+}
+
+int	find_highest_index(t_stack *stack)
+{
+	int		index;
+
+	index = stack->index;
+	while (stack)
+	{
+		if (stack->index > index)
+			index = stack->index;
+		stack = stack->next;
+	}
+	return (index);
+}
+
+void	sort_3(t_stack **stack)
+{
+	int		highest;
+	int		stack_size;
+
+	stack_size = ft_stacksize(*stack);
+	if (is_sorted(*stack))
+		return ;
+	highest = find_highest_index(*stack);
+	if ((*stack)->index == highest)
+		ft_rotate(stack, 'a');
+	else if ((*stack)->next->index == highest)
+		ft_reverse_rotate(stack, 'a');
+	if ((*stack)->index > (*stack)->next->index)
+		ft_swap(stack, 'a');
+}
+
+void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
+{
+	int	stack_size;
+	int	pushed;
+	int	i;
+	stack_size = ft_stacksize(*stack_a);
+	pushed = 0;
+	i = 0;
+	while (stack_size > 6 && i < stack_size && pushed < stack_size / 2)
+	{
+		if ((*stack_a)->index <= stack_size / 2)
+		{
+			ft_pushtob(stack_a, stack_b);
+			pushed++;
+		}
+        else
+            ft_rotate(stack_a, 'a');
+		i++;
+	}
+	while (stack_size - pushed > 3)
+	{
+		ft_pushtob(stack_a, stack_b);
+		pushed++;
+	}
+}
+void	sort(t_stack **stack_a, t_stack **stack_b)
+{
+	push_all_save_three(stack_a, stack_b);
+	sort_3(stack_a);
+	/*while (*stack_b)
+	{
+		get_target_position(stack_a, stack_b);
+		get_cost(stack_a, stack_b);
+		do_cheapest_move(stack_a, stack_b);
+	}
+	if (!is_sorted(*stack_a))
+		shift_stack(stack_a);*/
+}

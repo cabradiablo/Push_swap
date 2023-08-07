@@ -8,9 +8,13 @@ int main(int argc, char **argv)
     stack_b = NULL;
     (void)stack_b;
     stack_a = ft_parser(argc, argv);
-    weight_stack_a(&stack_a);
+    sort(&stack_a, &stack_b);
     //weight_calculator(&stack_a, &stack_b);
     //ft_algorithm(&stack_a);
+    print_stack(stack_a);
+    printf("\n\n");
+    print_stack(stack_b);
     free_stack(&stack_a);
+    free_stack(&stack_b);
     return (EXIT_SUCCESS);
 }
