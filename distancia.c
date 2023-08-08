@@ -20,9 +20,10 @@ void	do_move(t_stack **stack_a, t_stack **stack_b, int dst_a, int dst_b)
 			ft_doublerotate(stack_a, stack_b);
 		}
 	}
-	loop_rotate(stack_a, stack_b, dst_a, "a");
-	loop_rotate(stack_a, stack_b, dst_b, "b");
-	ft_pushtoa(stack_a, stack_b);
+	loop_rotate(stack_a, stack_b, dst_a, 'a');
+	loop_rotate(stack_a, stack_b, dst_b, 'b');
+	if (*stack_b)
+		ft_pushtoa(stack_a, stack_b);
 }
 
 void	get_dst(t_stack **stack_a, t_stack **stack_b)

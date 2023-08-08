@@ -6,7 +6,7 @@ void ft_pushtob(t_stack **stack_a, t_stack **stack_b) {
     t_stack *aux;
     
     if (*stack_a == NULL)
-        ft_error("ERROR: EMPTY STACK\n");
+        ft_error("ERROR: EMPTY STACKaaaa\n");
     aux = *stack_a;
     *stack_a = (*stack_a)->next;
     if (*stack_a != NULL)
@@ -24,7 +24,7 @@ void ft_pushtoa(t_stack **stack_a, t_stack **stack_b)
     t_stack *aux;
 
     if (*stack_b == NULL)
-        ft_error("ERROR: EMPTY STACK\n");
+        ft_error("ERROR: EMPTY STACK\bbbbbn");
     aux = *stack_b;
     *stack_b = (*stack_b)->next;
     if (*stack_b != NULL)

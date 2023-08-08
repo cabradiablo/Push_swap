@@ -19,7 +19,7 @@ CFLAGS = -Werror -Wextra -Wall
 CFLAGS += -g3 -fsanitize=address
 
 #NAME
-NAME = pushswap
+NAME = push_swap
 
 #INCLUDES
 INC_DIR = Libft

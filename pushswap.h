@@ -24,7 +24,7 @@ void    ft_rotate(t_stack **stack, char x);
 void    ft_reverse_rotate(t_stack **stack, char x);
 void    ft_doublerotate(t_stack **stack_a, t_stack **stack_b);
 void 	ft_reverse_doublerotate(t_stack **stack_a, t_stack **stack_b);
-void    loop_rotate(t_stack **stack_a, t_stack **stack_b, int i, char *order);
+void    loop_rotate(t_stack **stack_a, t_stack **stack_b, int i, char x);
 void    ft_swap(t_stack **stack, char x);
 void    ft_doubleswap(t_stack **stack_a, t_stack **stack_b);
 void    ft_pushtoa(t_stack **stack_a, t_stack **stack_b);
@@ -63,7 +63,7 @@ void	get_target_position(t_stack **stack_a, t_stack **stack_b);
 //UTILS   utils.c
 void 	print_stack(t_stack *stack);
 void	free_stack(t_stack **stack);
-long	ft_stacksize(t_stack *stack);
+int		ft_stacksize(t_stack *stack);
 char    **ft_argv_cleaner(int argc, char **argv);
 void 	ft_stackadd_back(t_stack **stack, t_stack *node);
 

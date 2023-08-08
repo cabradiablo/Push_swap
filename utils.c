@@ -36,11 +36,13 @@ char    **ft_argv_cleaner(int argc, char **argv)
     aux[i] = NULL;
     return (aux);
 }
-long	ft_stacksize(t_stack *stack)
+int	ft_stacksize(t_stack *stack)
 {
-	long		i;
+	int i;
     
 	i = 0;
+    if (!stack)
+		return (0);
 	while (stack)
 	{
 		stack = stack->next;

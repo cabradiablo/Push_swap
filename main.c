@@ -9,8 +9,6 @@ int main(int argc, char **argv)
     stack_a = ft_parser(argc, argv);
     sort(&stack_a, &stack_b);
     print_stack(stack_a);
-    printf("\n\n");
-    print_stack(stack_b);
     free_stack(&stack_a);
     free_stack(&stack_b);
     return (EXIT_SUCCESS);

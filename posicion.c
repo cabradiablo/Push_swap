@@ -78,7 +78,7 @@ void	get_target_position(t_stack **stack_a, t_stack **stack_b)
 	while (tmp_b)
 	{
 		t_pos = get_target(stack_a, tmp_b->index, INT_MAX, t_pos);
-		tmp_b->pos = t_pos;
+		tmp_b->target_pos = t_pos;
 		tmp_b = tmp_b->next;
 	}
 }

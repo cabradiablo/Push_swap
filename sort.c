@@ -74,6 +74,7 @@ void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 	int	stack_size;
 	int	pushed;
 	int	i;
+
 	stack_size = ft_stacksize(*stack_a);
 	pushed = 0;
 	i = 0;
