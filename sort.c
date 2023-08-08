@@ -15,6 +15,31 @@ int is_sorted(t_stack *stack)
     return (1);
 }
 
+void	shift_stack(t_stack **stack_a)
+{
+	int	lowest_pos;
+	int	stack_size;
+
+	stack_size = ft_stacksize(*stack_a);
+	lowest_pos = get_lowest_index_position(stack_a);
+	if (lowest_pos > stack_size / 2)
+	{
+		while (lowest_pos < stack_size)
+		{
+			ft_reverse_rotate(stack_a, 'a');
+			lowest_pos++;
+		}
+	}
+	else
+	{
+		while (lowest_pos > 0)
+		{
+			ft_rotate(stack_a, 'a');
+			lowest_pos--;
+		}
+	}
+}
+
 int	find_highest_index(t_stack *stack)
 {
 	int		index;
@@ -32,9 +57,7 @@ int	find_highest_index(t_stack *stack)
 void	sort_3(t_stack **stack)
 {
 	int		highest;
-	int		stack_size;
 
-	stack_size = ft_stacksize(*stack);
 	if (is_sorted(*stack))
 		return ;
 	highest = find_highest_index(*stack);
@@ -75,12 +98,12 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 {
 	push_all_save_three(stack_a, stack_b);
 	sort_3(stack_a);
-	/*while (*stack_b)
+	while (*stack_b)
 	{
 		get_target_position(stack_a, stack_b);
-		get_cost(stack_a, stack_b);
+		get_dst(stack_a, stack_b);
 		do_cheapest_move(stack_a, stack_b);
 	}
 	if (!is_sorted(*stack_a))
-		shift_stack(stack_a);*/
+		shift_stack(stack_a);
 }

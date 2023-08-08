@@ -6,8 +6,9 @@ SRC = main.c				\
 		push.c				\
 		utils.c				\
 		args_checker.c		\
-		pinxo_sort.c		\
 		sort.c				\
+		distancia.c			\
+		posicion.c			\
 		
 
 OBJ = $(SRC:%.c=%.o)
