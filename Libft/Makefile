@@ -6,7 +6,7 @@
 #    By: alepinto <alepinto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/12 02:55:49 by alepinto          #+#    #+#              #
-#    Updated: 2023/05/03 06:05:12 by alepinto         ###   ########.fr        #
+#    Updated: 2023/08/12 13:18:47 by alepinto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ SRC =	ft_isalpha.c		\
 OBJ = $(SRC:%.c=%.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 NAME =	libft.a	\
 
 all: $(NAME)

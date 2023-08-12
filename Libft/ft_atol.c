@@ -4,7 +4,7 @@ long	ft_atol(char *str)
 {
 	long	result;
 	int	i;
-	int	flag;
+	long	flag;
 
 	result = 0;
 	i = 0;

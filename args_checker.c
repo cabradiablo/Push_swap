@@ -25,17 +25,20 @@ void    valid_int_checker(char  *nbr)
 {
     long    aux;
 
-    if (!*nbr)
+    char    *ptr;
+
+    ptr = nbr;
+    if (!*ptr)
         ft_error("ERROR: EMPTY ARGUMENT\n");
-    if ((*nbr == '-' || *nbr == '+'))
-        nbr++;
-    if (*nbr == '\0')
+    if ((*ptr == '-' || *ptr == '+'))
+        ptr++;
+    if (*ptr == '\0')
         ft_error("ERROR: NO NUMBER AFTER SIGN\n");
-    while(*nbr != '\0')
+    while(*ptr != '\0')
     {
-        if (*(nbr) < '0' || *(nbr) > '9')
+        if (*(ptr) < '0' || *(ptr) > '9')
             ft_error("ERROR: INVALID SYNTAX ARGUMENT\n");
-        nbr++;
+        ptr++;
     }
     aux = ft_atol(nbr);
     if(aux > INT_MAX || aux < INT_MIN)
