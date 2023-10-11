@@ -32,10 +32,9 @@ int	main(int argc, char **argv)
 
 	stack_b = NULL;
 	stack_a = ft_parser(argc, argv);
-    if (!stack_a)
-        return (0);
-    if (is_sorted(stack_a) == 0)
-        sort(&stack_a, &stack_b);
+    	if (!stack_a || is_sorted(stack_a) == 1)
+        	return (0);
+	sort(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (EXIT_SUCCESS);

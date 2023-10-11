@@ -13,10 +13,7 @@
 #include "pushswap.h"
 
 void	ft_error(char *msg)
-{	
-	int	i;
-
-	i = 0;
+{
     (void)msg;
 	ft_putstr_fd("Error\n", 2);
 	exit(1);

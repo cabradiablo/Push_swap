@@ -43,8 +43,8 @@ t_stack	*stack_a_maker(char **nbr)
 	i = 0;
 	stack_a = NULL;
 	node = NULL;
-    if (!*nbr)
-        return (stack_a);
+   	if (!*nbr)
+		return (stack_a);
 	while (nbr[i])
 	{
 		node = (t_stack *)ft_calloc(sizeof(t_stack), 1);
@@ -61,23 +61,24 @@ t_stack	*ft_parser(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	char	**nbr;
+	char	*aux;
+	int		i;
 
-	if (argc <= 1)
-		ft_error("INVALID NUMEBER OF ARGUMENT\n");
-	else if (argc == 2)
+	i = 0;
+	aux = NULL;
+	stack_a = NULL;
+	if (argc == 1)
+		return (stack_a);
+	while (argv[++i])
 	{
-		nbr = ft_split(argv[1], ' ');
-		ft_checker(nbr);
-		stack_a = stack_a_maker(nbr);
-		ft_free_matrix(nbr);
+		aux = ft_strjoin_gnl(aux, argv[i]);
+		aux = ft_strjoin_gnl(aux, " ");
 	}
-	else
-	{
-		nbr = ft_argv_cleaner(argc, argv);
-		ft_checker(nbr);
-		stack_a = stack_a_maker(nbr);
-		ft_free_matrix(nbr);
-	}
+	nbr = ft_split(aux, ' ');
+	free(aux);
+	ft_checker(nbr);
+	stack_a = stack_a_maker(nbr);
+	ft_free_matrix(nbr);
 	card_to_ord(&stack_a);
 	return (stack_a);
 }
